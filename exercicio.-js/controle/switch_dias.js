@@ -1,6 +1,7 @@
 let dataAtual = new Date();
 let diasDaSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 let diaDaSemana = diasDaSemana[dataAtual.getDay()]; 
+
 switch(diaDaSemana) {
   case "Segunda":
     console.log("Hoje é segunda-feira");
