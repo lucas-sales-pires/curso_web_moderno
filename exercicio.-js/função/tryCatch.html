@@ -8,16 +8,19 @@
 </head>
 <body>
 
-    <input type="text" id="lucas" >
+    <input type="text" id="lucas" value="lucas">
 
     <script>
-    const dom = document.querySelector('#lucas')
-        function getID(id){
-            return id.value
-        }
+    function getID(id){
+        const dom = document.querySelector('#'+id)
+        if(!dom){
+            throw Error('O id passado por parâmetro não possui elemento no DOM')
+            }
+        return dom.value
+    }
         try{
-            console.log(getID(dom))
-            alert('executado com sucesso ')
+            const val = getID('lucas')
+            alert(val)
         }catch(e){
             alert('com erro '+e.message)
         }
