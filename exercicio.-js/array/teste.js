@@ -1,31 +1,19 @@
-const pessoa = function cumprimentar(nome){
-    console.log('Olá '+nome+'!')
-}
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max );
+  }
+console.log(getRandomInt(25))  
 
-pessoa('lucas')
 
-function getIdade(idade){
-    console.log(idade*365)
-}
-getIdade(25)
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+console.log(getRandomArbitrary(5,10))
 
-function funcionario(salario,horas){
-    console.log('Salário igual a R$'+(horas*salario).toLocaleString('pt-BR'))
-}
-funcionario(20,220)
+let lista = [1,2,3,4,5]
+let lista2 = lista.forEach(e => console.log(e))
 
-function nomeDoMes(numero){
-    let data = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
-    const mes = data[numero-1]
-    console.log(mes)
-}
-console.log(nomeDoMes(2))
-
-function maiorOuIgual(n1,n2){
-    if(n1 > n2 || n1 === n2){
-        console.log( true)
-    }else{
-        console.log( false)
-    }
-}
-maiorOuIgual(5,7)
+let lista3 = [1,2,3,4,5]
+let lista4 = lista3.map(n => n*2)
+let lista5 = lista3.map(function(n){return n*2})
+console.log(lista4)
+console.log(lista5)
