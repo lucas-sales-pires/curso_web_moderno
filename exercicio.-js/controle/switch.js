@@ -1,4 +1,9 @@
 const imprimirResultado = function(nota){
+    try{
+        if(typeof nota != "number"){
+            throw new Error ("Deve ser número")
+        }
+    
     switch(Math.floor(nota)){
         case 10:
         case 9:
@@ -16,5 +21,7 @@ const imprimirResultado = function(nota){
         default:
             console.log('Nota inválida')
     }
+    }catch(e){
+        console.error(e.message)
+    }
 }
-imprimirResultado(4)

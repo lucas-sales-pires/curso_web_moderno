@@ -6,7 +6,7 @@ function tratarErroELancar(erro) {
     throw{
         nome: erro.name,
         msg: erro.message,
-        date: new Date
+        date: new Date().toLocaleString(),
 
     }
 }

@@ -1,6 +1,7 @@
-const valor =0
-setInterval((valor) => {
-    constador = contador + valor
-    console.log(contador)
-},1000,1)
+let contador = 0;
 
+setInterval(() => {
+    const valor = 1; 
+    contador = contador + valor;
+    console.log(contador);
+}, 1000);
