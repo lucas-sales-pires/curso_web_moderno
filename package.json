@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "jquery": "^3.7.0",
-    "lodash": "^4.17.21"
+    "axios": "^1.6.4",
+    "jquery": "^3.7.1",
+    "lodash": "^4.17.21",
+    "start": "^5.1.0"
   }
 }
