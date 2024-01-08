@@ -1,15 +1,25 @@
-const url = ("http://files.cod3r.com.br/curso-js/funcionarios.json")
-const axios = require("axios")
+const passo1 = (ctx, next) => {
+    ctx.valor1 = 'mid1'
+    next()
+}
 
-axios.get(url).then(resposta => {
-    const funcionarios = resposta.data
-    const menorSalario = (func,funcAtual)=>{
-        return func.salario < funcAtual.salario ? func : funcAtual
+const passo2 = (ctx, next) => {
+    ctx.valor2 = 'mid2'
+    next()
+}
+
+const passo3 = ctx => ctx.valor3 = 'mid3'
+
+const exec = (ctx, ...middlewares) => {
+    const executePasso = function(index){
+        if(middlewares && index < middlewares.length ){
+            middlewares[index](ctx, () => ctx > executePasso(index + 1));
+        }
+
     }
-    const mulheresChinesas = funcionarios.filter(sexo => sexo.genero == "F").filter(pais => pais.pais == "China").reduce(menorSalario)
-   
-    
 
-    console.log(mulheresChinesas)
-} )
-
+    executePasso(0);
+}
+const ctx = {}
+exec(ctx, passo1, passo2, passo3)
+console.log(ctx)
