@@ -11,7 +11,7 @@ function gerarNumerosEntre(min, max, numerosProibidos) {
     })
 }
 
-async function gerarMegoSena(qtdeNumeros, tentativas = 1) {
+async function gerarMegaSena(qtdeNumeros, tentativas = 1) {
     try {
         const numeros = []
         for(let _ of Array(qtdeNumeros).fill()) {
@@ -22,11 +22,11 @@ async function gerarMegoSena(qtdeNumeros, tentativas = 1) {
         if(tentativas > 100) {
             throw "Não deu certo!"
         } else {
-            return gerarMegoSena(qtdeNumeros, tentativas + 1)
+            return gerarMegaSena(qtdeNumeros, tentativas + 1)
         }
     }
 }
 
-gerarMegoSena(25)
+gerarMegaSena(25)
     .then(console.log)
     .catch(console.log)
