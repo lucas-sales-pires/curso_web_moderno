@@ -7,7 +7,103 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .logo {
+            width: 15rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        ul {
+            display: flex;
+            width: 10%;
+            gap: 15%;
+            margin: 10px 0px 0px 10px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .cabecalho {
+            background-color: black;
+            display: flex;
+            border-bottom: solid green 2px;
+            line-height: 50px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            display: none;
+        }
+
+        .autenticacao {
+            float: inline-end;
+            display: block;
+            width: 15rem;
+            margin-top: 10px;
+        }
+
+        .autenticacao :nth-child(2) {
+            border-radius: 15px;
+            background-color: red;
+            padding: 5%;
+        }
+        li a:hover {
+            background-color: rgb(84, 84, 236);
+            color: black;
+            padding: 10%;
+        }
+        @media (max-width:792px) {
+            .cabecalho {
+                position: relative;
+            }
+
+   
+            .menu{
+                display: flex;
+            }
+            i{
+                margin: auto;
+            }
+            ul {
+                gap: none;
+                width: auto;
+            }
+            .autenticacao {
+                display: none;
+            }
+
+        }
+        @media(max-width: 500px){
+            .menu-toggle {
+                cursor: pointer;
+                right: 0;
+                display: flex;
+                width: 5%;
+                height: 100%;
+                box-sizing: border-box;
+                position: absolute;
+
+            }
+            .menu{
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -44,7 +140,21 @@
     </header>
 
     <script>
-        // ...
+        const li = document.querySelectorAll("li")
+        li.forEach((acionado)=>{
+            acionado.addEventListener("click",()=>{
+                li.forEach((outro)=>{
+                    outro.style.background =""
+                })
+                acionado.setAttribute("active","true")
+                
+            if(acionado.hasAttribute("active")){
+                acionado.style.background = "blue";
+            }
+            })
+        })
+   
+        
     </script>
 </body>
 
