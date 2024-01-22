@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            grid-area: conteudo;
+            background-color: aquamarine;
+        }
+        nav{
+            grid-area: navegacao;
+            background-color: blueviolet;
+        }
+        footer{
+            grid-area: rodape;
+            background-color: cadetblue;
+        }
+        body{
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns:(300px,1fr);
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-areas: 
+                "navegacao conteudo"
+                "navegacao conteudo"
+                "rodape rodape"
+            ;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>Navegacao</nav>   
+     <main>Conteudo</main>
+
+    <footer>Rodapé</footer>
+</body>
+</html>
