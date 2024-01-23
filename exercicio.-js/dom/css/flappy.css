@@ -1,0 +1,10 @@
+.conteudo [wm-flappy]{
+    width: 100vw;
+    height: 100vw;
+    background-color: aqua;
+}
+.canos {
+    background-color: green;
+    height: 50px;
+    
+}
