@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        //Função criar tabela
+        function criarTabela(estados) {
+            const linhas = estados.map(estado => {
+                const dadoTabelaId = document.createElement("td");
+                dadoTabelaId.innerHTML = estado.id;
+
+                const dadoTabelaNome = document.createElement("td");
+                dadoTabelaNome.innerHTML = estado.nome;
+
+                const dadoTabelaSigla = document.createElement("td");
+                dadoTabelaSigla.innerHTML = estado.sigla;
+
+                const tr = document.createElement("tr");//Linha da tabela
+                tr.appendChild(dadoTabelaId); //Na linha vou ter id
+                tr.appendChild(dadoTabelaNome); //Na linha vou ter nome
+                tr.appendChild(dadoTabelaSigla); //Na linha vou ter sigle
+                return tr; // nessa constante linhas eu retorno a linha com os dados do estado
+            });
+
+            const tabela = document.createElement("table"); //crio uma tabela
+            linhas.forEach(linha => { // Para cada linha 
+                tabela.appendChild(linha); // Eu adiciono a linha na tabela
+            });
+
+            document.body.appendChild(tabela); //Coloco a tabela no body 
+        }
+        //AJAX
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(config.metodo, config.url, true);//true é assincrona
+
+            xhr.onload = e => { //Assim que a requisição carregar
+                if (xhr.status == 200) { // E o status for 200 que significa sucesso
+                    config.sucesso(xhr.response); // eu trago a resposta da requisição
+                } else if (xhr.status >= 400) { //Caso o status seja de 400 pra cima, deu ruim.
+                    config.erro({
+                        codigo: xhr.status, // Trago o codigo do erro
+                        texto: xhr.statusText // E o texto sobre o erro
+                    });
+                }
+            };
+
+            xhr.send(); // Envio a requisiçao
+        }
+        //Utilizando AJAX
+        ajax({
+            url: "dados/estados.json", //Minha url é um arquivo json
+            metodo: "get", //Meu método de requisição é GET
+            sucesso(resposta) { //Se a requisição for sucesso
+                const estados = JSON.parse(resposta); //Pego a resposta e transformo em Objeto
+                criarTabela(estados) //Crio a tabela a partir da resposta recebida
+
+
+            },
+            erro(e) { //Caso de erro
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`);
+                document.body.appendChild(msg);
+            }
+        });
+    </script>
+
+</body>
