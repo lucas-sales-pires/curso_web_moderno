@@ -8,11 +8,11 @@ const babel = require("gulp-babel") // Transforma o código na forma mais aceita
 function padrao(callback) {
     return gulp.src("src/**/*.js")
     .pipe(babel({
-        comments: false, // Tirar comentários
+        comments: false, // Tira comentários
         presets: ["env"] // Codigo mais compativel com codigo possivel
     }))
-    .pipe(uglify()) //  Minifica o código
-    .pipe(concat("codigo.min.js")) // Pega todos os arquivos que já estão transpilados e concatena eles e renomeia o final do nome do arquivo 
+    .pipe(uglify()) // deixa o codigo todo colado sem espaços
+    .pipe(concat("codigo.min.js")) // Pega todos os arquivos que já estão transpilados e renomeia o arquivo ou cria
     .on("error",err => console.log(err)) // Resposta para um erro
     .pipe(gulp.dest("build"))// Pasta destino do arquivo
     
