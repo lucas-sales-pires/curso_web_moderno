@@ -81,6 +81,32 @@
         <p>Cod3r Ensino</p>
     </footer>
     <script>
-        // ...
+        const comBorda = { "border":"solid 8px orange"}
+        const semBorda = { "border":"none"}
+
+        $('a[href="#link3"]').parent().css(comBorda).css(semBorda) //Pai do a que contém #link3
+
+        $("li:last").prev().css(comBorda).css(semBorda) // Um antes do último li
+
+        $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda) // Pai do a que contém #link3 depois dele
+
+        $('a[href="#link1"]').parents().css(comBorda).css(semBorda) // Todos os pais deste link até o html
+
+        $('a[href="#link1"]').parentsUntil("body").css(comBorda).css(semBorda) //Todos os pais até o body
+
+        $("main").children().css(comBorda).css(semBorda) //Todos os filhos de main
+
+        $("body").find("a").css(comBorda).css(semBorda) //Todos os a dentro do body
+
+        const elementoDOM = document.getElementsByClassName("menu")
+        $(elementoDOM).css(comBorda).css(semBorda)
+
+        $("main").children().each((i,e)=>{
+            $(e).css(comBorda)
+        })
+        $("li").children().each((i,e)=>{
+            $(e).css(semBorda)
+        })
+
     </script>
 </body>
