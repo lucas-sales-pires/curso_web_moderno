@@ -5,6 +5,23 @@
 }
 .cabecalho {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 10px 20px;
+    background-color: #777;
+}
+
+.cabecalho a {
+    background-color: crimson;
+    padding: 5px 12px;
+    border-radius: 5px;
+    
+}
+.cabecalho h1 {
+    margin: 0;
+    font-size: 1.4rem;
+
+}
+.conteudo {
+    padding: 25px;
+    height: 100%;
 }

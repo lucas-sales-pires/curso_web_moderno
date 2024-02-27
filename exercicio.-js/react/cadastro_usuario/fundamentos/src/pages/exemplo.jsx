@@ -1,11 +1,10 @@
 import Cabecalho from "../../components/Cabecalho";
-import Link from 'next/link'
+import Layout from '../../components/Layout'
 
 export default function Exemplo() {
     return (
-        <div>
+        <Layout titulo="Usando Componentes">
             <Cabecalho titulo = "xyz" />
-            <Link href={"/"}>Voltar</Link>
-        </div>
+        </Layout>
     )
 }
