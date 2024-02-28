@@ -6,7 +6,7 @@ export default function Integracao() {
     const [codigo, setCodigo] = useState(1)
 
     function obterCliente(){
-        fetch('http://localhost:3000/api/clientes/123')
+        fetch(`http://localhost:3000/api/clientes/${codigo}`)
             .then(resp => resp.json())
             .then(data => setCliente(data))
     }
